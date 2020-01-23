@@ -1,0 +1,29 @@
+{
+  "name": "eleventy-on-glitch",
+  "description": "A starter template for 11ty (eleventy) static site generator on glitch.com",
+  "tags": [
+    "eleventy",
+    "11ty",
+    "ssr",
+    "static",
+    "glitch",
+    "template",
+    "webring"
+  ],
+  "version": "1.0.0",
+  "scripts": {
+    "build": "eleventy",
+    "deploy": "eleventy && http-server dist/",
+    "dev": "eleventy --serve",
+    "start": "npm run deploy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "node-fetch": "^2.6.0",
+    "http-server": "^0.12.1",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "markdown-it": "^10.0.0"
+  },
+  "license": "MIT"
+}
