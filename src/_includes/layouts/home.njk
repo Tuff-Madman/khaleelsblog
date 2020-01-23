@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pageTitle or siteData.name }}</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap" rel="stylesheet">
+    <link id="favicon" rel="icon" href="https://cdn.glitch.com/bc53dfcf-1654-4a52-ac14-f81149d0cd4b%2Fdonut_white_transparent.png?v=1573727088695" />
+  </head>
+  <body>
+  
+    <center>
+      <a href="/">home 🏠</a>
+      <a href="/todo">todo</a>
+      <br /><br />
+      <a href = "https://khaleelgibran.glitch.me/">MY WEBSITE</a>
+      <a href = "/feed.xml">RSS FEED</a>
+    </center>
+    {{ content | safe }}
+    
+    <h2>All posts (written by me, of course)</h2>
+    <ul>
+      {%- for post in collections.posts -%}
+        <li>{{ post.date.toLocaleDateString() }} - <a href="{{ post.url }}">{{ post.data.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+    
+    <h2>My Someother Projects</h2>
+    <ul class="no-bullet">
+      {%- for friend in friends -%}
+        <li>
+          <img class="avatar" src="{{ friend.avatar }}">
+          <a href="https://{{ friend.domain }}.glitch.me">{{ friend.domain }}</a> 
+          -- {{ friend.description }}</li>
+      {%- endfor -%}
+    </ul>
+    <p>...or see these projects in <a href="/webring/">another way</a>!</p>
+  
+    <footer>
+      Made by <a href="https://glitch.com/@khalby786">Khaleel Gibran</a>.
+      <br /><br />
+      GITHUB: <a href = "https://github.com/@khalby786">@khalby786</a>
+      <br />
+      EMAIL: <a href = "mailto:khalby786@gmail.com">khalby787@gmail.com</a>
+      <br /><br />
+      This blog was originally made using Hexo, but then I saw the Geoglitches project on the Glitch Blog and I decided to give it a try because it was much faster than Hexo.
+    </footer>
+  </body>
+</html>
